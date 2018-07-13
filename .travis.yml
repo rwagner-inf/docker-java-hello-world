@@ -8,8 +8,5 @@ services:
 before_install:
   - docker build -t teste/hello  . 
  
-
- 
-
 script:
  - docker run -d teste/hello 
