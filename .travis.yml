@@ -9,4 +9,4 @@ before_install:
   - docker build -t teste/hello  . 
  
 script:
- - docker run -d teste/hello 
+ - docker run -it --rm=true teste/hello
