@@ -1,12 +1,53 @@
-sudo: required
+#BRANCH PRODUCAO
+branches:
+  only:
+  - producao
 
-language: java
+  sudo: required
 
-services:
-  - docker
+  language: java
 
-before_install:
-  - docker build -t teste/hello  . 
- 
-script:
- - docker run -it --rm=true teste/hello
+  services:
+    - docker
+
+  before_install:
+    - docker build -t teste/hello  . 
+
+  script:
+   - docker run -it --rm=true teste/hello -e AMBIENTE=PRODUCAO
+
+#BRANCH HOMOLOGACAO
+branches:
+  only:
+  - homologacao
+
+  sudo: required
+
+  language: java
+
+  services:
+    - docker
+
+  before_install:
+    - docker build -t teste/hello  . 
+
+  script:
+   - docker run -it --rm=true teste/hello -e AMBIENTE=HOMOLOGACAO
+   
+  #BRANCH DESENVOLVIMENTO 
+   branches:
+  only:
+  - desenvolvimento
+
+  sudo: required
+
+  language: java
+
+  services:
+    - docker
+
+  before_install:
+    - docker build -t teste/hello  . 
+
+  script:
+- docker run -it --rm=true teste/hello -e AMBIENTE=DESENVOLVIMENTO
