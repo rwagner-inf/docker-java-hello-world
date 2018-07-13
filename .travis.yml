@@ -14,7 +14,8 @@ branches:
     - docker build -t teste/hello  . 
 
   script:
-   - docker run -it --rm=true  -e AMBIENTE=PRODUCAO teste/hello
+    - docker run -it --rm=true -e "AMBIENTE=PRODUCAO" teste/hello 
+
 
 #BRANCH HOMOLOGACAO
 branches:
@@ -32,7 +33,7 @@ branches:
     - docker build -t teste/hello  . 
 
   script:
-   - docker run -it --rm=true -e AMBIENTE=HOMOLOGACAO teste/hello 
+    - docker run -it --rm=true -e "AMBIENTE=HOMOLOGACAO" teste/hello 
    
   #BRANCH DESENVOLVIMENTO 
    branches:
@@ -50,7 +51,6 @@ branches:
     - docker build -t teste/hello  . 
 
   script:
-   - docker run -it --rm=true -e AMBIENTE=DESENVOLVIMENTO teste/hello 
-
+    - docker run -it --rm=true -e "AMBIENTE=DESENVOLVIMENTO" teste/hello 
 
   
