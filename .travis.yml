@@ -15,5 +15,5 @@ before_install:
   - docker build -t teste/hello  .
 
 script:
-  - if [ "$TRAVIS_BRANCH" = "producao" ]; then docker run -it --rm=true -e "AMBIENTE=PRODUCAO"  teste/hello
-  - if [ "$TRAVIS_BRANCH" = "homologacao" ]; then docker run -it --rm=true -e "AMBIENTE=HOMOLOGACAO" teste/hello
+  - if [ "$TRAVIS_BRANCH" = "producao" ]; then docker run -it --rm=true -e "AMBIENTE=PRODUCAO"  teste/hello; fi
+  - if [ "$TRAVIS_BRANCH" = "homologacao" ]; then docker run -it --rm=true -e "AMBIENTE=HOMOLOGACAO" teste/hello; fi
