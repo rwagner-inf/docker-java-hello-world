@@ -15,5 +15,9 @@ before_install:
   - docker build -t teste/hello  .
 
 script:
+   #Executa o comando de build para modificações na branch "producao"
   - if [ "$TRAVIS_BRANCH" = "producao" ]; then docker run -it --rm=true -e "AMBIENTE=PRODUCAO"  teste/hello; fi
+  #Executa o comando de build para modificações na branch "homologacao"
   - if [ "$TRAVIS_BRANCH" = "homologacao" ]; then docker run -it --rm=true -e "AMBIENTE=HOMOLOGACAO" teste/hello; fi
+  #Executa o comando de build para modificações na branch "desenvolvimento"
+  - if [ "$TRAVIS_BRANCH" = "desenvolvimento" ]; then docker run -it --rm=true -e "AMBIENTE=DESENVOLVIMENTO" teste/hello; fi
