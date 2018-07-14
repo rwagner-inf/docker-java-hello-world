@@ -1,6 +1,19 @@
-#BRANCH PRODUCAO
+sudo: required
+
+services:
+  - docker
+
+language: java
+
+
 branches:
   only:
-  - producao
-  - homologacao
-  - desenvolvimento
+    - produção
+    - homologacao
+    - desenvolvimento
+
+before_install:
+  - docker build -t teste/hello  .
+  - docker info
+
+script: docker run -it --rm=true teste/hello
